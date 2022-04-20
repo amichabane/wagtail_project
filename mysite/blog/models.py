@@ -52,7 +52,7 @@ class BlogIndexPage(Page):
         tag = request.GET.get('tag')
         blogpages = BlogPage.objects.filter(tags__name=tag)
 
-        # Update template context
+        # Update templates context
         context = super().get_context(request)
         context['blogpages'] = blogpages
         return context
@@ -97,7 +97,7 @@ class BlogPageGalleryImage(Orderable):
             tag = request.GET.get('tag')
             blogpages = BlogPage.objects.filter(tags__name=tag)
 
-            # Update template context
+            # Update templates context
             context = super().get_context(request)
             context['blogpages'] = blogpages
             return context
@@ -115,7 +115,7 @@ class ContactPage(AbstractEmailForm):
 
     template = "contact/contact_page.html"
     # This is the default path.
-    # If ignored, Wagtail adds _landing.html to your template name
+    # If ignored, Wagtail adds _landing.html to your templates name
     landing_page_template = "contact/contact_page_landing.html"
 
     intro = RichTextField(blank=True)
