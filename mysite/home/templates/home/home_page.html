@@ -1,19 +1,18 @@
 {% extends "base.html" %}
-
 {% load wagtailcore_tags %}
 
- ...
 {% block content %}
-<article>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1 class="display-4">{{ self.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
     {% for block in page.body %}
-        {% if block.block_type == 'heading' %}
-        <h1>{{self.title}}</h1>
-        {% else %}
-            <section class="block-{{ block.block_type }}">
-                {% include_block block %}
-            </section>
-        {% endif %}
+        {% include_block block %}
     {% endfor %}
-</article>
 
 {% endblock %}
